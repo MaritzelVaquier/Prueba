@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js"></script>
+    <title>CarritoExamen</title>
+    <style>
+        .titulo {
+            text-align: center;
+            color: rgb(212, 141, 35);
+        }
+        .tabla{
+            width: 60%;
+            height: auto;
+            border: 2px solid rgb(86, 166, 212);
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .tabla td{            
+            border-bottom: rgb(156, 193, 214) solid 2px;
+        }
+        .tabla th{
+            color: rgb(37, 118, 223);
+        }
+        .letras {
+            text-align: center;
+            color: rgb(84, 90, 95);
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titulo"> Farmacia "blue" </h1>
+    <!-- Tabla de productos-->
+    <center><table class="tabla" style="margin-top: 5%;">
+        <tr>
+            <th>#ID</th>
+            <th>PRODUCTO</th>
+            <th>PRECIO</th>
+            <th> </th>
+    
+        </tr>
+        <tr class="letras">
+            <td>1</td>
+            <td>Shampoo</td>
+            <td>35</td>
+        
+            <td><button producto-id="1" nombre="Shampoo" precio="35" cantidad = "5" onclick="agregarProducto1(this)">Agregar</button></td>
+      
+        </tr>
+        <tr class="letras">
+            <td>2</td>
+            <td>Antibiotico</td>
+            <td>20</td>
+           
+            <td><button producto-id="2" nombre="Antibiotico" precio="20" cantidad = "5" onclick="agregarProducto2(this)">Agregar</button></td>
+              
+        </tr>
+        <tr class="letras">
+            <td>3</td>
+            <td>Paracetamol</td>
+            <td>28</td>
+          
+            <td><button producto-id="3" nombre="Paracetamol" precio="28"  cantidad = "5" onclick="agregarProducto3(this)">Agregar</button></td> 
+        </tr>
+        <tr class="letras">
+            <td>4</td>
+            <td>Aspirina</td>
+            <td>51</td>
+          
+            <td><button producto-id="4" nombre="Aspirina" precio="51"  cantidad = "5" onclick="agregarProducto4(this)">Agregar</button></td> 
+        </tr>
+    </table></center>
+    <!-- /Tabla de productos-->
+    
+    <!-- Tabla de Carrito-->
+    <center><table class="tabla" style="margin-top: 10%;">
+        <thead>
+            <tr>
+                <th> #ID</th>
+                <th> PRODUCTO</th>
+                <th> CANTIDAD</th>
+                <th> TOTAL</th>
+        
+            </tr>
+        </thead>
+        <tbody id="carrito" class="letras">
+        </tbody>
+
+        <tr  class="tabla" style="margin-top: 10%;">
+            <tbody id="carrito2" class="letras">
+            </tbody>
+            
+        </tr>
+
+        <tr class="tabla" style="margin-top: 10%;">
+            <tbody id="carrito3" class="letras">
+            </tbody>
+            
+        </tr>
+
+        <tr class="tabla" style="margin-top: 10%;">
+            <tbody id="carrito4" class="letras">
+            </tbody>
+            
+        </tr>
+
+        <tr class="tabla,letras" style="margin-top: 10%;">
+            <tbody id="total" class="letras">
+            </tbody>
+        </tr>
+
+        
+    </table></center>
+    <!-- /Tabla de Carrito-->
+
+    <p> </p>
+    <p> </p>
+
+    <canvas id="grafica" width="200" height="200"></canvas>
+
+</body>
+
+<script>
+
+var a = 0;
+var b = 0;
+var c = 0;
+var d = 0;
+var ta = 0;
+var tb = 0;
+var tc = 0;
+var td = 0;
+var total = 0;
+var grf1;
+
+function agregarProducto1(producto){
+    var nombre = producto.getAttribute('nombre');
+    var precio = producto.getAttribute('precio');
+    var cantidad = producto.getAttribute('cantidad');
+    var id = producto.getAttribute('producto-id');
+    c = c + 1;
+    tc = precio * c;
+    total = tc + tb + ta +td;
+    document.getElementById('carrito').innerHTML = '<tr><td>'+id+'</td><td>'+nombre+'</td><td>'+c+'</td><td>'+tc+'</td></tr>';
+    document.getElementById('total').innerHTML = '<tr><td>'+" "+'</td><td>'+" "+'</td><td>'+" "+'</td><td>'+total+'</td></tr>';
+}
+
+function agregarProducto2(producto){
+    var nombre = producto.getAttribute('nombre');
+    var precio = producto.getAttribute('precio');
+    var cantidad = producto.getAttribute('cantidad');
+    var id = producto.getAttribute('producto-id');
+    b = b + 1;
+    tb = precio * b;
+    total = tc + tb + ta +td;
+    document.getElementById('carrito2').innerHTML = '<tr><td>'+id+'</td><td>'+nombre+'</td><td>'+b+'</td><td>'+tb+'</td></tr>';
+    document.getElementById('total').innerHTML = '<tr><td>'+" "+'</td><td>'+" "+'</td><td>'+" "+'</td><td>'+total+'</td></tr>';
+}
+
+function agregarProducto3(producto){
+    
+    var nombre = producto.getAttribute('nombre');
+    var precio = producto.getAttribute('precio');
+    var cantidad = producto.getAttribute('cantidad');
+    var id = producto.getAttribute('producto-id');
+    a = a + 1;
+    ta = precio * a;
+    total = tc + tb + ta + td;
+    document.getElementById("carrito3").innerHTML = '<tr><td>'+id+'</td><td>'+nombre+'</td><td>'+a+'</td><td>'+ta+'</td></tr>';
+    document.getElementById('total').innerHTML = '<tr><td>'+" "+'</td><td>'+" "+'</td><td>'+" "+'</td><td>'+total+'</td></tr>';
+}
+
+function agregarProducto4(producto){
+    
+    var nombre = producto.getAttribute('nombre');
+    var precio = producto.getAttribute('precio');
+    var cantidad = producto.getAttribute('cantidad');
+    var id = producto.getAttribute('producto-id');
+    d = d + 1;
+    td = precio * d;
+    total = tc + tb + ta + td;
+    document.getElementById("carrito4").innerHTML = '<tr><td>'+id+'</td><td>'+nombre+'</td><td>'+d+'</td><td>'+td+'</td></tr>';
+    document.getElementById('total').innerHTML = '<tr><td>'+" "+'</td><td>'+" "+'</td><td>'+" "+'</td><td>'+total+'</td></tr>';
+}
+
+var ctx = document.getElementById('grafica');
+var mygrafica = new Chart(ctx,{
+    type:"pie",
+    data:{
+        labels:['Producto 1','Producto 2','Producto 3','Producto 4'],
+        datasets: [{
+            label:'Productos',
+            data: ['document.getElementById("carrito3").a','b','a','d'],
+            backgroundColor: [
+            'rgb(0, 51, 153)',
+            'rgb(0, 102, 255)',
+            'rgb(102, 153, 255)',
+            'rgb(153, 204, 255)'
+            ]
+        }]
+    },
+
+    options:{
+        scales:{
+            yAxes:[{
+                ticks:{
+                    begingAtZaero:true
+                }
+            }]
+        }
+    }
+})
+
+</script>
+</html>

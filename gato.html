@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> GATO </title>
+    <style>
+        .titulo {
+            color: chocolate;
+            text-align: center;
+        }
+        .tabla {
+            text-align: center;
+            border: 3px solid blueviolet;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titulo"><i> Gatito </i></h1>
+    <center><table class="tabla">
+        <tr>
+            <td><button name="btn1"><h3>
+                1
+            </h3></button></td>
+            <td><button name="btn2"><h3>
+                2
+            </h3></button></td>
+            <td><button name="btn3"><h3>
+                3
+            </h3></button></td>
+        </tr>
+        <tr>
+            <td><button name="btn4"><h3>
+                4
+            </h3></button></td>
+            <td><button name="btn2"><h3>
+                5
+            </h3></button></td>
+            <td><button name="btn2"><h3>
+                6
+            </h3></button></td>
+        </tr>
+        <tr>
+            <td><button name="btn2"><h3>
+                7
+            </h3></button></td>
+            <td><button name="btn2"><h3>
+                8
+            </h3></button></td>
+            <td><button name="btn2"><h3>
+                9
+            </h3></button></td>
+        </tr>
+    <center></table>
+    <br>
+    <p style="text-align: center; color: midnightblue;">
+        .:. Posicion:
+        <input type="text" id="position">
+    </p>
+    <p style="text-align: center; color: midnightblue;">
+        .:. Valor (X,O) :
+        <input type="text" id="valor">
+    </p>
+    <p><button onclick="agregar(this)"> Agregar </button></p>
+</body>
+
+<script>
+    var valor;
+    function agregar(pos,val) {
+        var pos = document.getElementById('position');
+        var val = document.getElementById('valor');
+
+        if (pos == 1) {
+            val = document.getElementsByName('btn1');
+        }
+    }
+</script>
+</html>

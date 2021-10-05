@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Javascript</title>
+    <style>
+        .titulo {
+            text-align: center;
+            color: blueviolet;
+        }
+        .botton {
+            color: rgb(9, 21, 192);
+            background-color: lightskyblue;
+        }
+        .otro {
+
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titulo"><i> Calculadora </i></h1>
+    <center><table>
+        <tr style="color: rgb(231, 138, 76); text-align: center;">
+            <th> Valor 1</th>
+            <th> Operación</th>
+            <th> Valor 2 </th>
+            <th> Resultado</th>
+        </tr>
+        <tr>
+            <th><input class="otro" type="text" id="n-1"></th>
+            <th>
+                <select name="op" id="opera" style="color: dodgerblue;">
+                    <option value="+"> Suma </option>
+                    <option value="-"> Resta </option>
+                    <option value="*"> Multiplicacion </option>
+                    <option value="/"> Division </option>
+                </select>
+            </th>
+            <th><input type="text" id="n-2"></th>
+            <th><input type="text" id="total"></th>
+            <th>
+                <button perro="firulais" id="btn-ok" onclick="saludo(this)" class="botton"> Ok </button>
+            </th>
+        </tr>
+    </center></table>
+</body>
+<script>
+    function saludo(elemento){
+      var nombre = elemento.getAttribute('perro');
+      alert(nombre);
+    }
+
+    var elementos = document.getElementsByClassName('otro');
+    for (var i = 0; i< elementos.legth; i++) {
+        console.log(elementos[1]);
+    }
+</script>
+</html>
